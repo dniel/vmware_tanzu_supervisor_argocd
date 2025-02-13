@@ -1,0 +1,14 @@
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachineService
+metadata:
+  name: vmware-vm
+spec:
+  ports:
+  - name: ssh
+    port: 22
+    protocol: TCP
+    targetPort: 22
+  selector:
+    vm-selector: vvmware-vm
+  type: LoadBalancer
