@@ -10,5 +10,5 @@ spec:
     protocol: TCP
     targetPort: 22
   selector:
-    vm-selector: vvmware-vm
+    vm-selector: vmware-vm
   type: LoadBalancer

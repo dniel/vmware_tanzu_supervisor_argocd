@@ -1,0 +1,28 @@
+---
+apiVersion: vmoperator.vmware.com/v1alpha1
+kind: VirtualMachine
+metadata:
+  labels:
+    vm-selector: vmware-vm
+  name: vmware-vm
+spec:
+  imageName: oracular-server-cloudimg-amd64
+  className: best-effort-xsmall
+  powerState: poweredOn
+  storageClass: tanzu-gold-storage-policy
+  advancedOptions:
+    defaultVolumeProvisioningOptions:
+      thinProvisioned: true
+  volumes:
+  - name: vmware-vol
+    persistentVolumeClaim:
+      claimName: vmware-pvc
+  networkInterfaces:
+  - networkType: vsphere-distributed
+    networkName: dvpg-workload-network
+  readinessProbe:
+    tcpSocket:
+      port: 22
+  vmMetadata:
+    configMapName: vmware-configmap
+    transport: CloudInit
