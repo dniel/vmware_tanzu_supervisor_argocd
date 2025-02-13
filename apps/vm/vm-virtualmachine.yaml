@@ -6,7 +6,7 @@ metadata:
     vm-selector: vmware-vm
   name: vmware-vm
 spec:
-  imageName: oracular-server-cloudimg-amd64
+  imageName: vmi-6ab7ee61fca569000
   className: best-effort-xsmall
   powerState: poweredOn
   storageClass: tanzu-gold-storage-policy
